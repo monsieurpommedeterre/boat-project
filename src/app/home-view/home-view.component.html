@@ -1,0 +1,8 @@
+<div>
+    <button routerLink="/new-boat" class="button-main">Ajouter un bateau</button>
+</div>
+<div class="row">
+    <div class="col-third" *ngFor="let boat of boats; let i=index">
+        <app-boat-card [theBoat]="boat"></app-boat-card>
+    </div>
+</div>

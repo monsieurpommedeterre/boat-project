@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.row {
+    display: flex;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.button-main {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: .25rem;
+    border: none;
+    padding: .75rem 1.25rem;
+    cursor: pointer;
+    margin: 1rem auto;
+}
+.list-item {
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125); 
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.card-body {
+    padding: 0.75rem;
+}
+.card-img-container {
+    max-height: 210px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.card-img {
+    max-width: 100%;
+}
+.col-third {
+    width: 33.333333%;
+    box-sizing: border-box;
+    padding: .75rem 1.25rem;
+}
+
+@media(max-width:768px) {
+    .row {
+        flex-direction: column;
+    }
+    .col-third {
+        width: 100%;
+    }
+}
