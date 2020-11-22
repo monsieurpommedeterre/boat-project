@@ -1,7 +1,11 @@
-<div class="row full-height">
+<div class="row-reverse full-height">
+    <div class="col-half submit-col-decoration">
+
+    </div>
     <div class="col-half submit-col">
         <div *ngIf="displayFormPart0">
             <div><h2>Louer son bateau<br>sur Click&Boat</h2></div>
+            <a routerLink="/" class="back_link">< Retour</a>
             <form (ngSubmit)="onSubmit0(f0)" #f0="ngForm">
                 <p>Je suis :</p>
                 <label for="particulier" class="container_radio">
@@ -20,6 +24,7 @@
         <div *ngIf="displayFormPart1">
             <div>
                 <p>Étape 1/2</p>
+                <a (click)="getBack(0)" class="back_link">< Retour</a>
                 <h2>Votre bateau</h2>
             </div>
             <form (ngSubmit)="onSubmit1(f1)" #f1="ngForm">
@@ -56,6 +61,7 @@
         </div>
         <div *ngIf="displayFormPart2">
             <p>Étape 2/2</p>
+            <a (click)="getBack(1)" class="back_link">< Retour</a>
             <h2>Votre bateau</h2>
             <form (ngSubmit)="onSubmit2(f2)" #f2="ngForm">
                 <label for="boat_name">Nom du bateau</label>
@@ -66,13 +72,26 @@
                 <input class="form-field" ngModel type="text" name="owner_name" id="owner_name" required>
                 <label for="boat_description">Description du bateau</label>
                 <input class="form-field" ngModel type="text" name="boat_description" id="boat_description" required>
+                <div *ngIf="tempBoat.boat_type==='catamaran'||tempBoat.boat_type==='voilier'">
+                    <label for="longueur">Longueur</label>
+                    <input class="form-field" type="text" id="longueur" name="boat_length" ngModel required>
+                    <label for="largeur">Largeur</label>
+                    <input class="form-field" type="text" id="largeur" name="boat_width" ngModel required>
+                    <label for="tirant">Tirant d'eau</label>
+                    <input class="form-field" type="text" id="tirant" name="boat_draught" ngModel required>
+                    <label for="equipage">Y a-t-il un équipage ?</label>
+                    <input type="checkbox" id="equipage" name="boat_crew" ngModel><br>
+                    <label for="equipage">Y a-t-il une annexe ?</label>
+                    <input type="checkbox" id="annexe" name="boat_annex" ngModel><br>
+                    <div *ngIf="tempBoat.boat_type==='voilier'">
+                    <label for="foil">Y a-t-il un foil ?</label>
+                    <input type="checkbox" id="foil" name="boat_foil" ngModel>
+                    </div>
+                </div>
                 <div>
                     <button type="submit" class="button-secondary" [disabled]=f2.invalid>Enregistrer</button>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="col-half submit-col-decoration">
-
     </div>
 </div>

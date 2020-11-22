@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="col-full">
+    <h2>{{ boat.boat_name }}</h2>
+    <a routerLink="/" class="back_link">Retour</a>
+    <ul class="list">
+        <li class="list-item">Modèle / Type: {{ boat.boat_model }} - {{ boat.boat_type }}</li>
+        <li class="list-item">Nom du propriétaire / Statut: {{ boat.owner_name }} - {{ boat.owner_type }}</li>
+        <li class="list-item">Description: {{ boat.boat_description }}</li>
+    </ul>
+    <ul class="list" *ngIf="boat.boat_type==='voilier'||boat.boat_type==='catamaran'">
+        <li class="list-item">Longueur: {{ boat.details.boat_length }}</li>
+        <li class="list-item">Largeur: {{ boat.details.boat_width }}</li>
+        <li class="list-item">Tirant d'eau: {{ boat.details.boat_draught }}</li>
+        <li class="list-item">Équipage: {{ boat.details.boat_crew?'Oui':'Non' }}</li>
+        <li class="list-item">Annexe: {{ boat.details.boat_annex?'Oui':'Non' }}</li>
+        <li class="list-item" *ngIf="boat.boat_type==='catamaran'">Foil: {{ boat.details.boat_foil?'Oui':'Non' }}</li>
+    </ul>
+    </div>
+</div>

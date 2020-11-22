@@ -50,7 +50,18 @@ export class NewBoatComponent implements OnInit {
     this.tempBoat.owner_name=form.value['owner_name'];
     this.tempBoat.boat_description=form.value['boat_description'];
     this.tempBoat.boat_img=`assets/img/${this.tempBoat.boat_type}.jpg`;
-    console.log(form.value['boat_img'])
+    if(this.tempBoat.boat_type === 'voilier' || this.tempBoat.boat_type === 'catamaran') {
+      this.tempBoat.details = {
+        boat_length: form.value['boat_length'],
+        boat_width: form.value['boat_width'],
+        boat_draught: form.value['boat_draught'],
+        boat_crew: form.value['boat_crew']?true:false,
+        boat_annex: form.value['boat_annex']?true:false,
+      }
+      if(this.tempBoat.boat_type === 'voilier') {
+        this.tempBoat.details.boat_foil = form.value['boat_foil']?true:false;
+      }
+    }
     this.boatService.boats.push(this.tempBoat);
 
     // Je sauvegarde le nouveau tableau en local storage pour conserver l'info en cas de rafraichissement de la page ou coupure du serveur. Hors de cet exercice, cela peut aussi servir à conserver l'info en cas d'erreur d'enregistrement en bdd.
@@ -58,6 +69,22 @@ export class NewBoatComponent implements OnInit {
 
     // On redirige sur la home
     this.router.navigate(['/']);
+  }
+
+  getBack(position) {
+    if(position==0) {
+      this.displayFormPart0=true;
+      this.displayFormPart1=false;
+      console.log("avant", this.tempBoat);
+      this.tempBoat={};
+      console.log("après", this.tempBoat);
+    } else if(position==1) {
+      this.displayFormPart1=true;
+      this.displayFormPart2=false;
+      console.log("avant", this.tempBoat);
+      delete this.tempBoat.boat_type;
+      console.log("après", this.tempBoat);
+    }
   }
   
 

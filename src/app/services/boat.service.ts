@@ -8,7 +8,15 @@ export class BoatService {
             boat_name: "le p'tit louis",
             boat_model: "cr-760",
             boat_description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perferendis, nobis nostrum id dolorum et sint aut tenetur hic quidem ipsam dolore temporibus tempora eum!",
-            boat_img: "assets/img/voilier.jpg"
+            boat_img: "assets/img/voilier.jpg",
+            details: {
+                boat_length: 8,
+                boat_width: 3,
+                boat_draught: 2,
+                boat_crew: true,
+                boat_annex: true,
+                boat_foil: true
+            }
         },
         {
             owner_type: "particulier",
@@ -17,7 +25,14 @@ export class BoatService {
             boat_name: "la licorne",
             boat_model: "bx-4000",
             boat_description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perferendis, nobis nostrum id dolorum et sint aut tenetur hic quidem ipsam dolore temporibus tempora eum!",
-            boat_img: "assets/img/catamaran.jpg"
+            boat_img: "assets/img/catamaran.jpg",
+            details: {
+                boat_length: 10,
+                boat_width: 5,
+                boat_draught: 2,
+                boat_crew: true,
+                boat_annex: false
+            }
         },
         {
             owner_type: "particulier",

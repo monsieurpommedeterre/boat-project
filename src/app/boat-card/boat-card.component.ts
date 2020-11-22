@@ -8,10 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class BoatCardComponent implements OnInit {
   @Input() theBoat: any;
+  @Input() id: number;
+  lien: string;
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.lien = `/bateau/${this.id}`;
   }
 
 }

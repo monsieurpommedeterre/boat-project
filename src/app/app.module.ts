@@ -8,9 +8,11 @@ import { NewBoatComponent } from './new-boat/new-boat.component';
 import { BoatService } from './services/boat.service';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BoatDetailsComponent } from './boat-details/boat-details.component';
 
 const appRoutes: Routes = [
   { path: 'new-boat', component: NewBoatComponent },
+  { path: 'bateau/:id', component: BoatDetailsComponent },
   { path: '', component: HomeViewComponent },
 ];
 
@@ -19,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeViewComponent,
     BoatCardComponent,
-    NewBoatComponent
+    NewBoatComponent,
+    BoatDetailsComponent
   ],
   imports: [
     BrowserModule,
