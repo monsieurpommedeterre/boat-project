@@ -22,11 +22,26 @@ export class BoatService {
         {
             owner_type: "particulier",
             owner_name: "Isabelle",
-            boat_type: "bateau-moteur",
+            boat_type: "bateau_moteur",
             boat_name: "l'angelus",
             boat_model: "tr18",
             boat_description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe perferendis, nobis nostrum id dolorum et sint aut tenetur hic quidem ipsam dolore temporibus tempora eum!",
             boat_img: "assets/img/bateau_moteur.jpg"
         }
     ]
+
+    newBoatFormDisplay = {
+        part0: true,
+        part1: false,
+        part2: false
+    }
+
+    constructor() {
+        if(localStorage.getItem('boatsList')){
+            console.log("la liste de bateaux est basée sur le local storage")
+            this.boats = JSON.parse(localStorage.getItem('boatsList'));
+          } else {
+            console.log("la liste de bateaux est basée sur le service")
+          }
+    }
 }

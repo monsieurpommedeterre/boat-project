@@ -1,8 +1,21 @@
-<div>
-    <button routerLink="/new-boat" class="button-main">Ajouter un bateau</button>
-</div>
-<div class="row">
-    <div class="col-third" *ngFor="let boat of boats; let i=index">
-        <app-boat-card [theBoat]="boat"></app-boat-card>
+<div class="container">
+    <div>
+        <button routerLink="/new-boat" class="button-main">Ajouter un bateau</button>
+    </div>
+    <div class="autocomplete_container">
+        <form>
+            <div class="row">
+                <input type="text" class="autocomplete_input form-field" (ngModelChange)="didModify($event)" name="search_input" [ngModel]="inputValue">
+                <button class="button-secondary" type="submit">Rechercher</button>
+            </div>
+        </form>
+        <ul class="list">
+            <li class="list-item" *ngFor="let result of results" (click)="selectResult(result)">{{ result }}</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-third" *ngFor="let boat of boats; let i=index">
+            <app-boat-card [theBoat]="boat"></app-boat-card>
+        </div>
     </div>
 </div>
