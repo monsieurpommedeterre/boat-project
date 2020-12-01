@@ -1,5 +1,7 @@
 
 export class BoatService {
+
+    // J'initialise un jeu "test" de 3 bateaux, à terme on se connectera plutôt en BDD pour récupérer la liste des bateaux
     boats = [
         {
             owner_type: "professionel",
@@ -45,12 +47,14 @@ export class BoatService {
         }
     ]
 
+    // J'initialise les booléens qui serviront à l'affichage des différentes parties de mon formulaire
     newBoatFormDisplay = {
         part0: true,
         part1: false,
         part2: false
     }
 
+    // Je vérifie que je n'ai pas de bateaux stockés en local storage, si oui, je privilégie cela. Sinon la variable boats conservera la valeur qui lui a été affectée plus haut
     constructor() {
         if(localStorage.getItem('boatsList')){
             console.log("la liste de bateaux est basée sur le local storage")
